@@ -1,0 +1,42 @@
+@media (max-width: 1400px) {
+	
+}
+
+@media (max-width: 1200px) {
+
+
+}
+
+@media (max-width: 992px) {
+	
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 576px) {
+	
+}
+
+
+
+
+
+
+/*first cut tect from css and paste it in responsive.css cz after link previous css will vanished.
+create sass folder and style.scss file on this new folder.
+
+open command prompt...it should always be opend to interlink.
+
+now give your directory information in c promt
+
+G:\Shikbe Shobai Full Stuck Web Development Course\Farid Rony Vai\Class 14-16 Paxalar Sass project\sass
+
+G:
+cd Shikbe Shobai Full Stuck Web Development Course
+cd Farid Rony Vai
+cd Class 14-16 Paxalar Sass project
+sass--watch sass/style.scss:css/style.css
+
+now enter..it wil create a file named map*/
