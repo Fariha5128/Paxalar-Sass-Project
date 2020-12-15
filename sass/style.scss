@@ -9,6 +9,14 @@
    r mixin a css property fixed korleo reuse r shomoy
     valu change kora jay ja extend a possible na
 */
+
+@import "variable";
+@import "extend";
+@import "mixin";
+
+
+@import "media";
+
 *{
 	padding: 0px;
 	margin:0px;
@@ -26,82 +34,38 @@ a,a:hover{
 	text-decoration: none;
 }
 
-$ThemeClr:#FF9B1A;
-$DarkClr:#1D1E1E;
-
-
-%DefaultStructure{
-	font-family: Montserrat, sans-serif;
-	font-size:14px;
-	line-height: 24px;
-	color: #848484;
-	/*body te color r font p tag unushare hobe*/
-}
 
 
 
-/**********************  header section css start  *************************/
 
-%topheaderstyle{
-	color: #848484;
-	font-size: 14px;
 
-}
-
-/*@mixin padd($y,$x){
-	padding:$y $x;
-}*/
-
-%btncustom{
-	color: #fff !important;
-	background-color: $ThemeClr;
-	border-radius: 30px;
-	padding: 8px 20px !important;
-	border: 1px solid $ThemeClr;
-}
-
-%positionCenter{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	-webkit-transform: translate(-50%,-50%);
-	-moz-transform: translate(-50%,-50%);
-}
-%overlayPosition{
-	content:"";
-	position: absolute;
-	top:0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-@mixin transition($Time, $Effect){
-	transition:all $Time $Effect;
-	-webkit-transition:all $Time $Effect;
-	-moz-transition:all $Time $Effect;
-
-}
-
-@mixin transformScaleX($Zoom){
-	transform: scaleX($Zoom);
-	-webkit-transform: scaleX($Zoom);
-	-moz-transform: scaleX($Zoom);
-}
 .top-header{
 /*	@include padd(4px,0px);*/
 	background-color: #EFEFEF;
 	text-transform: uppercase;
 	P{
       @extend %topheaderstyle;
+
+      @media(max-width: $media_sm){
+      	text-align: center;
+      }
+	}
+	ul{
+		justify-content: flex-end;
+		@media(max-width: $media_sm){
+			justify-content: center !important;
+		}
+	a{
+		text-decoration: none;
+		 @extend %topheaderstyle;
+
+		
+
+	}	
 	}
 	
 	
-	  a{
-	  	text-decoration: none;
-	  	 @extend %topheaderstyle;
-
-	  }
+	 
 }
 
 .menu-section .navbar .collapse{
@@ -117,13 +81,32 @@ $DarkClr:#1D1E1E;
 				border: 1px solid transparent;
 				/*shoshomy e nav link a border diye transparent clr kore rakbo
 				tahole hover korle kapbe na*/
+               
+               @media(max-width: $media_lg){
+               	font-weight: 500;
+               	    color: #5D5D5D;
+               	    font-size: 11px;
+               	    text-transform: uppercase;
+               	    padding: 0px 16px !important;
+               	    border: 1px solid transparent;
 
+               	    align-items: center;
+               	}
 
 
 			}
 
 			a:hover{
 				@extend %btncustom;
+
+
+					@media(max-width: $media_lg){
+						
+						    padding: 3px 15px !important;
+						   
+                        }
+
+
 			}
 			
 		}
@@ -131,9 +114,18 @@ $DarkClr:#1D1E1E;
 				a{
 					@extend %btncustom;
 
+					@media(max-width: $media_lg){
+						
+						    padding: 3px 15px !important;
+						   
+                        }
 					&:hover{
 						background-color:transparent;
 						color:#5D5D5D !important; 
+
+						
+							
+						
 					}
 				}
 			}
@@ -162,10 +154,40 @@ $DarkClr:#1D1E1E;
 			font-weight: 700;
 			font-size: 52px;
 			font-family: raleway;
+
+			@media(max-width: $media_lg){
+      	       font-size: 40px;
+           }
+
+			@media(max-width: $media_md){
+				font-size: 30px;
+			}
+
+			@media(max-width: $media_sm){
+			     font-size:32px;
+			     margin-bottom: 30px;
+			}
+
+			@media(max-width: $media_xsm){
+			     font-size:22px;
+			     margin-bottom: 20px;
+			}
 		}
 		.banner-inner{
 			padding: 55px 0px 45px;
 			color: #EFEFEF;
+
+			@media(max-width: $media_md){
+				padding: 15px 0px;
+			}
+			@media(max-width: $media_sm){
+				padding: 25px 0px;
+			}
+
+			@media(max-width: $media_md){
+				display:none;
+			}
+
 
 			
 			h4{
@@ -199,6 +221,19 @@ $DarkClr:#1D1E1E;
 		text-align: center;
 		position: relative;
 		z-index: 1;
+
+		    @media(max-width: $media_sm){
+				padding: 18px 10px;
+				/* border: 1px solid #E1E1E1; */
+				 text-align: center !important; 
+				/* position: relative; */
+				/* z-index: 1; */
+				max-width: 294px;
+				margin-bottom: 30px !important;
+				margin: auto;
+						   
+                 }
+            
 		&::before{
 		 @extend %overlayPosition;
 		 @include transition(0.3s, linear);
@@ -214,7 +249,6 @@ $DarkClr:#1D1E1E;
             z-index:-1;
             
 
-            
 		}
 		&::after{
             	 @extend %overlayPosition;
@@ -225,6 +259,8 @@ background: linear-gradient(to bottom , #DBB003,#FD7202); /* W3C, IE 10+/ Edge, 
            
             opacity: 0;
             z-index:-1
+
+
             }
 
 	    &:hover{
@@ -330,6 +366,14 @@ background: linear-gradient(to bottom , #DBB003,#FD7202); /* W3C, IE 10+/ Edge, 
     	padding: 60px 0px;
     	.fig-inner{
     		border: none !important;
+
+    		@media(max-width: $media_sm){
+				max-width: 289px;
+				    text-align: center;
+				    margin: auto;
+				    margin-bottom: 50px;
+						   
+                 }
     	}
     		img{
     			height: 70px;
@@ -339,6 +383,14 @@ background: linear-gradient(to bottom , #DBB003,#FD7202); /* W3C, IE 10+/ Edge, 
             margin:30px 0px;
             font-size: 17px;
             font-weight: 500;
+
+
+            @media(max-width: $media_sm){
+				margin: 21px 0px;
+				    font-size: 17px;
+				    font-weight: 500;
+						   
+                 }
     		}
     		p{
             font-size: 14px;
@@ -389,6 +441,12 @@ background: linear-gradient(to bottom , #DBB003,#FD7202); /* W3C, IE 10+/ Edge, 
                 transform: translate(-50%,30%);
                 width: 200px;
     			}
+
+
+    			@media(max-width: $media_sm){
+				display: none;
+						   
+                 }
     		}
     	}
     	.header{
@@ -420,6 +478,10 @@ background: linear-gradient(to bottom , #DBB003,#FD7202); /* W3C, IE 10+/ Edge, 
     		    -webkit-transition: all 0.3s linear;
     		    -moz-transition: all 0.3s linear;
     		    transform: translate(-50%, -30%);
+
+    		    @media(max-width: $media_sm){
+    		    	display: none;
+    		    }
     		}
 		    &:hover{
 			
@@ -443,6 +505,9 @@ background: linear-gradient(to bottom , #DBB003,#FD7202); /* W3C, IE 10+/ Edge, 
     	height: 50px;
     	border-radius: 5px;
     	transform: rotate(45deg);
+    	@media(max-width: $media_sm){
+    		    	display: none;
+    		    }
     	}
 
     	h3{
@@ -467,15 +532,34 @@ background: linear-gradient(to bottom , #DBB003,#FD7202); /* W3C, IE 10+/ Edge, 
     	text-align: center;
     	color: #fff;
     	align-items: center;
+    	 @media(max-width: $media_sm){
+         	display: none;
+         }
     	h2{
          
          font-size: 50px;
          font-weight: 700;
+
+         @media(max-width: $media_lg){
+         	font-size: 42px;
+         }
+
+         @media(max-width: $media_sm){
+				font-size: 22px;
+						   
+                 }
     	}
     	strong{
     		font-size: 18px;
     		font-weight: 400;
     		text-transform: uppercase;
+
+    		 @media(max-width: $media_lg){
+         	font-size: 16px;
+         }
+         
+
+
     	}
     }
 
@@ -489,11 +573,19 @@ background: linear-gradient(to bottom , #DBB003,#FD7202); /* W3C, IE 10+/ Edge, 
 	.spider{
 		position: relative;
 		padding: 80px 0px;
+
+		@media(max-width: $media_sm){
+			    padding: 40px 0px;
+			}
 		img{
         height: 200px;
 		}
 		.spider-box{
 			position: absolute;
+
+			@media(max-width: $media_sm){
+			     display: none;
+			}
          b{
          	font-size: 18px;
          	font-weight: 600;
@@ -578,6 +670,10 @@ background: linear-gradient(to bottom , #DBB003,#FD7202); /* W3C, IE 10+/ Edge, 
 .team-expart{
 	position: relative;
 	padding: 60px 0px;
+
+	@media(max-width: $media_sm){
+			 padding: 20px 0px;
+			}
 	.header{
 
 	h2{
@@ -624,6 +720,10 @@ background: linear-gradient(to bottom , #DBB003,#FD7202); /* W3C, IE 10+/ Edge, 
 	margin: auto;
 	img{
      height: 350px;
+
+     	@media(max-width: $media_sm){
+			 height: 170px;
+			}
 	}
 	h3{
      margin:15px 0px;
@@ -631,6 +731,13 @@ background: linear-gradient(to bottom , #DBB003,#FD7202); /* W3C, IE 10+/ Edge, 
         font-weight: 500;
         text-transform: uppercase;
         padding: 10px 0px;
+        @media(max-width: $media_sm){
+			 margin: 5px 0px;
+			 /* font-size: 20px; */
+			 /* font-weight: 500; */
+			 /* text-transform: uppercase; */
+			 padding: 10px 0px 0px;
+			}
 	}
 	p{
 		 font-size: 14px;
@@ -639,6 +746,10 @@ background: linear-gradient(to bottom , #DBB003,#FD7202); /* W3C, IE 10+/ Edge, 
 	    max-width: 400px;
 	    margin: auto;
 	    text-transform: uppercase;
+
+	    @media(max-width: $media_sm){
+			margin-bottom: 30px !important;
+			}
 	}
 }
 
@@ -718,6 +829,10 @@ position: relative;
 	padding: 60px 0px;
 	text-align: center;
 	margin: auto;
+
+	@media(max-width: $media_sm){
+			max-width: 400px;
+			}
 	.header{
 		max-width: 500px;
 
@@ -761,6 +876,12 @@ position: relative;
 .card-section{
 	.card{
 		padding-top: 0;
+
+		@media(max-width: $media_sm){
+				max-width: 327px;
+				    margin: auto;
+				    margin-bottom: 48px;
+				}
 		img{
         border-radius: 10px;
 		}
@@ -817,6 +938,11 @@ position: relative;
 .feedback{
 	position: relative;
 		padding: 60px 0px;
+
+		@media(max-width: $media_sm){
+				max-width: 419px;
+				margin: auto;
+				}
 		
 		.header{
 			max-width: 500px;
@@ -907,6 +1033,10 @@ position: relative;
 				color: #333;
 				position: absolute;
 				left:-230px;
+
+				@media(max-width: $media_sm){
+				   left: -50px;
+				}
 			}
 		}
 
@@ -916,6 +1046,10 @@ position: relative;
 				color: #333 !important;
 				position: absolute;
 				right:-230px;	
+
+				@media(max-width: $media_sm){
+				    right: -50px;
+				}
 			}
 		}
 			
@@ -953,6 +1087,19 @@ position: relative;
 	     	background-color:#EA6B09;
 	     	@include transformScaleX(0.1);
 	     	@include transition(0.3s,linear);
+
+	     	 @media(max-width: $media_lg){
+						
+						       left: -89px;
+						   
+                        }
+
+            @media(max-width: $media_sm){
+						
+						      right:0;
+						      margin:auto;
+						   
+                        }
 	     }
 	    
 		}
@@ -973,6 +1120,13 @@ position: relative;
     border: 1px solid #6e6969;
     border-radius: 48%;
     padding: 10px 15px;
+
+
+					@media(max-width: $media_lg){
+						
+						   padding: 10px 12px;
+						   
+                        }
 			a{
 				text-decoration: none;
 				i{
@@ -1062,16 +1216,38 @@ position: relative;
 	background: #000000;
 	color: #77756B !important;
 	padding: 15px 0px;
+
+
 	p{
      color: #77756B !important;
      align-items: center;
+
+      @media(max-width: $media_lg){
+						
+					 font-size: 14px;
+						   
+                 }
 	}
 	ul{
+        justify-content: flex-end;
+        @media(max-width: $media_sm){
+				justify-content: flex-start !important;		
+				
+						   
+                 }
 		li{
 
 			> a{
               color: #77756B !important;
               justify-content: flex-end;
+
+              @media(max-width: $media_lg){
+						
+						   font-size: 14px;
+						   
+                        }
+
+               
 
               &:hover{
               	color:$ThemeClr !important;

@@ -8,19 +8,6 @@
    r mixin a css property fixed korleo reuse r shomoy
     valu change kora jay ja extend a possible na
 */
-* {
-  padding: 0px;
-  margin: 0px; }
-
-p {
-  margin-bottom: 0px !important; }
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: Montserrat, sans-serif; }
-
-a, a:hover {
-  text-decoration: none; }
-
 body, .menu-section .navbar .collapse ul li a {
   font-family: Montserrat, sans-serif;
   font-size: 14px;
@@ -29,7 +16,7 @@ body, .menu-section .navbar .collapse ul li a {
   /*body te color r font p tag unushare hobe*/ }
 
 /**********************  header section css start  *************************/
-.top-header P, .top-header a {
+.top-header P, .top-header ul a {
   color: #848484;
   font-size: 14px; }
 
@@ -59,12 +46,33 @@ body, .menu-section .navbar .collapse ul li a {
   width: 100%;
   height: 100%; }
 
+* {
+  padding: 0px;
+  margin: 0px; }
+
+p {
+  margin-bottom: 0px !important; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Montserrat, sans-serif; }
+
+a, a:hover {
+  text-decoration: none; }
+
 .top-header {
   /*	@include padd(4px,0px);*/
   background-color: #EFEFEF;
   text-transform: uppercase; }
-  .top-header a {
-    text-decoration: none; }
+  @media (max-width: 767px) {
+    .top-header P {
+      text-align: center; } }
+  .top-header ul {
+    justify-content: flex-end; }
+    @media (max-width: 767px) {
+      .top-header ul {
+        justify-content: center !important; } }
+    .top-header ul a {
+      text-decoration: none; }
 
 .menu-section .navbar .collapse ul li a {
   font-weight: 500;
@@ -75,6 +83,21 @@ body, .menu-section .navbar .collapse ul li a {
   border: 1px solid transparent;
   /*shoshomy e nav link a border diye transparent clr kore rakbo
   tahole hover korle kapbe na*/ }
+  @media (max-width: 1199px) {
+    .menu-section .navbar .collapse ul li a {
+      font-weight: 500;
+      color: #5D5D5D;
+      font-size: 11px;
+      text-transform: uppercase;
+      padding: 0px 16px !important;
+      border: 1px solid transparent;
+      align-items: center; } }
+@media (max-width: 1199px) {
+  .menu-section .navbar .collapse ul li a:hover {
+    padding: 3px 15px !important; } }
+@media (max-width: 1199px) {
+  .menu-section .navbar .collapse ul li:last-child a {
+    padding: 3px 15px !important; } }
 .menu-section .navbar .collapse ul li:last-child a:hover {
   background-color: transparent;
   color: #5D5D5D !important; }
@@ -92,9 +115,32 @@ body, .menu-section .navbar .collapse ul li a {
       font-weight: 700;
       font-size: 52px;
       font-family: raleway; }
+      @media (max-width: 1199px) {
+        .banner-section .container h1 {
+          font-size: 40px; } }
+      @media (max-width: 991px) {
+        .banner-section .container h1 {
+          font-size: 30px; } }
+      @media (max-width: 767px) {
+        .banner-section .container h1 {
+          font-size: 32px;
+          margin-bottom: 30px; } }
+      @media (max-width: 575px) {
+        .banner-section .container h1 {
+          font-size: 22px;
+          margin-bottom: 20px; } }
     .banner-section .container .banner-inner {
       padding: 55px 0px 45px;
       color: #EFEFEF; }
+      @media (max-width: 991px) {
+        .banner-section .container .banner-inner {
+          padding: 15px 0px; } }
+      @media (max-width: 767px) {
+        .banner-section .container .banner-inner {
+          padding: 25px 0px; } }
+      @media (max-width: 991px) {
+        .banner-section .container .banner-inner {
+          display: none; } }
       .banner-section .container .banner-inner h4 {
         font-size: 20px;
         margin-bottom: 0px; }
@@ -113,6 +159,16 @@ body, .menu-section .navbar .collapse ul li a {
     text-align: center;
     position: relative;
     z-index: 1; }
+    @media (max-width: 767px) {
+      .feature-section-1 .feature-inner {
+        padding: 18px 10px;
+        /* border: 1px solid #E1E1E1; */
+        text-align: center !important;
+        /* position: relative; */
+        /* z-index: 1; */
+        max-width: 294px;
+        margin-bottom: 30px !important;
+        margin: auto; } }
     .feature-section-1 .feature-inner::before {
       transition: all 0.3s linear;
       -webkit-transition: all 0.3s linear;
@@ -206,12 +262,23 @@ body, .menu-section .navbar .collapse ul li a {
   padding: 60px 0px; }
   .fig-section .fig-inner {
     border: none !important; }
+    @media (max-width: 767px) {
+      .fig-section .fig-inner {
+        max-width: 289px;
+        text-align: center;
+        margin: auto;
+        margin-bottom: 50px; } }
   .fig-section img {
     height: 70px; }
   .fig-section h2 {
     margin: 30px 0px;
     font-size: 17px;
     font-weight: 500; }
+    @media (max-width: 767px) {
+      .fig-section h2 {
+        margin: 21px 0px;
+        font-size: 17px;
+        font-weight: 500; } }
   .fig-section p {
     font-size: 14px;
     font-weight: 300;
@@ -246,6 +313,9 @@ body, .menu-section .navbar .collapse ul li a {
       left: 50%;
       transform: translate(-50%, 30%);
       width: 200px; }
+    @media (max-width: 767px) {
+      .banner-2 .steps-pic img {
+        display: none; } }
   .banner-2 .header {
     color: #fff; }
     .banner-2 .header h2 {
@@ -271,6 +341,9 @@ body, .menu-section .navbar .collapse ul li a {
       -webkit-transition: all 0.3s linear;
       -moz-transition: all 0.3s linear;
       transform: translate(-50%, -30%); }
+      @media (max-width: 767px) {
+        .banner-2 .header::after {
+          display: none; } }
     .banner-2 .header:hover::after {
       transform: scaleX(0.2);
       -webkit-transform: scaleX(0.2);
@@ -285,6 +358,9 @@ body, .menu-section .navbar .collapse ul li a {
       height: 50px;
       border-radius: 5px;
       transform: rotate(45deg); }
+      @media (max-width: 767px) {
+        .banner-2 .steps span {
+          display: none; } }
     .banner-2 .steps h3 {
       color: #fff;
       margin: 30px 0px 10px;
@@ -302,13 +378,25 @@ body, .menu-section .navbar .collapse ul li a {
   text-align: center;
   color: #fff;
   align-items: center; }
+  @media (max-width: 767px) {
+    .fraction {
+      display: none; } }
   .fraction h2 {
     font-size: 50px;
     font-weight: 700; }
+    @media (max-width: 1199px) {
+      .fraction h2 {
+        font-size: 42px; } }
+    @media (max-width: 767px) {
+      .fraction h2 {
+        font-size: 22px; } }
   .fraction strong {
     font-size: 18px;
     font-weight: 400;
     text-transform: uppercase; }
+    @media (max-width: 1199px) {
+      .fraction strong {
+        font-size: 16px; } }
 
 .spider-section {
   padding: 50px 0px;
@@ -318,10 +406,16 @@ body, .menu-section .navbar .collapse ul li a {
   .spider-section .spider {
     position: relative;
     padding: 80px 0px; }
+    @media (max-width: 767px) {
+      .spider-section .spider {
+        padding: 40px 0px; } }
     .spider-section .spider img {
       height: 200px; }
     .spider-section .spider .spider-box {
       position: absolute; }
+      @media (max-width: 767px) {
+        .spider-section .spider .spider-box {
+          display: none; } }
       .spider-section .spider .spider-box b {
         font-size: 18px;
         font-weight: 600;
@@ -369,6 +463,9 @@ body, .menu-section .navbar .collapse ul li a {
 .team-expart {
   position: relative;
   padding: 60px 0px; }
+  @media (max-width: 767px) {
+    .team-expart {
+      padding: 20px 0px; } }
   .team-expart .header h2 {
     margin: 15px 0px;
     font-size: 20px;
@@ -405,12 +502,22 @@ body, .menu-section .navbar .collapse ul li a {
   margin: auto; }
   .men-section img {
     height: 350px; }
+    @media (max-width: 767px) {
+      .men-section img {
+        height: 170px; } }
   .men-section h3 {
     margin: 15px 0px;
     font-size: 20px;
     font-weight: 500;
     text-transform: uppercase;
     padding: 10px 0px; }
+    @media (max-width: 767px) {
+      .men-section h3 {
+        margin: 5px 0px;
+        /* font-size: 20px; */
+        /* font-weight: 500; */
+        /* text-transform: uppercase; */
+        padding: 10px 0px 0px; } }
   .men-section p {
     font-size: 14px;
     font-weight: 300;
@@ -418,6 +525,9 @@ body, .menu-section .navbar .collapse ul li a {
     max-width: 400px;
     margin: auto;
     text-transform: uppercase; }
+    @media (max-width: 767px) {
+      .men-section p {
+        margin-bottom: 30px !important; } }
 
 .contact-section {
   background-image: url(../images/banner2.png);
@@ -477,6 +587,9 @@ body, .menu-section .navbar .collapse ul li a {
   padding: 60px 0px;
   text-align: center;
   margin: auto; }
+  @media (max-width: 767px) {
+    .our-blogs {
+      max-width: 400px; } }
   .our-blogs .header {
     max-width: 500px; }
     .our-blogs .header h2 {
@@ -511,6 +624,11 @@ body, .menu-section .navbar .collapse ul li a {
 
 .card-section .card {
   padding-top: 0; }
+  @media (max-width: 767px) {
+    .card-section .card {
+      max-width: 327px;
+      margin: auto;
+      margin-bottom: 48px; } }
   .card-section .card img {
     border-radius: 10px; }
   .card-section .card .card-body ul {
@@ -551,6 +669,10 @@ body, .menu-section .navbar .collapse ul li a {
 .feedback {
   position: relative;
   padding: 60px 0px; }
+  @media (max-width: 767px) {
+    .feedback {
+      max-width: 419px;
+      margin: auto; } }
   .feedback .header {
     max-width: 500px;
     margin: auto; }
@@ -618,11 +740,17 @@ body, .menu-section .navbar .collapse ul li a {
       color: #333;
       position: absolute;
       left: -230px; }
+      @media (max-width: 767px) {
+        .feedback .carousel .carousel-control-prev span {
+          left: -50px; } }
     .feedback .carousel .carousel-control-next span {
       font-size: 25px;
       color: #333 !important;
       position: absolute;
       right: -230px; }
+      @media (max-width: 767px) {
+        .feedback .carousel .carousel-control-next span {
+          right: -50px; } }
 
 .footer-section {
   padding: 80px 0px;
@@ -647,6 +775,13 @@ body, .menu-section .navbar .collapse ul li a {
       transition: all 0.3s linear;
       -webkit-transition: all 0.3s linear;
       -moz-transition: all 0.3s linear; }
+      @media (max-width: 1199px) {
+        .footer-section h3::after {
+          left: -89px; } }
+      @media (max-width: 767px) {
+        .footer-section h3::after {
+          right: 0;
+          margin: auto; } }
   .footer-section .column-1 img {
     padding-bottom: 50px; }
   .footer-section .column-1 p {
@@ -660,6 +795,9 @@ body, .menu-section .navbar .collapse ul li a {
     border: 1px solid #6e6969;
     border-radius: 48%;
     padding: 10px 15px; }
+    @media (max-width: 1199px) {
+      .footer-section .column-1 ul li {
+        padding: 10px 12px; } }
     .footer-section .column-1 ul li a {
       text-decoration: none; }
       .footer-section .column-1 ul li a i {
@@ -706,10 +844,21 @@ body, .menu-section .navbar .collapse ul li a {
   .footer-bottom p {
     color: #77756B !important;
     align-items: center; }
-  .footer-bottom ul li > a {
-    color: #77756B !important;
+    @media (max-width: 1199px) {
+      .footer-bottom p {
+        font-size: 14px; } }
+  .footer-bottom ul {
     justify-content: flex-end; }
-    .footer-bottom ul li > a:hover {
-      color: #FF9B1A !important; }
+    @media (max-width: 767px) {
+      .footer-bottom ul {
+        justify-content: flex-start !important; } }
+    .footer-bottom ul li > a {
+      color: #77756B !important;
+      justify-content: flex-end; }
+      @media (max-width: 1199px) {
+        .footer-bottom ul li > a {
+          font-size: 14px; } }
+      .footer-bottom ul li > a:hover {
+        color: #FF9B1A !important; }
 
 /*# sourceMappingURL=style.css.map */
